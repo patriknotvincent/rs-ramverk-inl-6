@@ -1,6 +1,7 @@
 <script setup>
 import HeaderItem from '@/components/HeaderItem.vue'
 import InputForm from '@/components/InputForm.vue'
+import GeneralButton from '@/components/GeneralButton.vue'
 import InputButton from '@/components/InputButton.vue'
 import ItemList from '@/components/ItemList.vue'
 </script>
@@ -16,6 +17,8 @@ import ItemList from '@/components/ItemList.vue'
     </InputForm>
     <InputButton @button-click="handleButtonClick"></InputButton>
     <ItemList :items="itemsData" @remove-item="removeItemFromList"></ItemList>
+    <GeneralButton @button-click="sortListAlphabetic" :buttonText="'Sortera Alfabetiskt'"></GeneralButton>
+    <GeneralButton @button-click="sortListStarNumeric" :buttonText="'Sortera På Stjärnor'"></GeneralButton>
   </main>
 </template>
 
@@ -25,7 +28,8 @@ export default {
     HeaderItem,
     InputForm,
     InputButton,
-    ItemList
+    ItemList,
+    GeneralButton
   },
   data() {
     return {
@@ -72,6 +76,16 @@ export default {
     },
     removeItemFromList(index) {
       this.itemsData.splice(index, 1)
+    },
+    sortListAlphabetic() {
+      console.log("BEFORE: ",this.itemsData)
+      this.itemsData.sort((a, b) => a.name.localeCompare(b.name));
+      console.log("AFTER: ",this.itemsData)
+    },
+    sortListStarNumeric() {
+      console.log("BEFORE: ", this.itemsData)
+      this.itemsData.sort((a, b) => parseInt(a.stars) - parseInt(b.stars));
+      console.log("AFTER: ", this.itemsData)
     }
   }
 }
