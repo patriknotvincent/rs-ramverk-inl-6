@@ -7,8 +7,8 @@ import StarItem from './StarItem.vue'
     <span>{{ title }}</span>
     <div class="star-container">
       <StarItem v-for="index in parseInt(stars)" :key="index" />
+      <button @click="removeMovieItem">Remove</button>
     </div>
-    <button @click="removeMovieItem">Remove</button>
   </div>
 </template>
 
@@ -40,6 +40,6 @@ export default {
 }
 .star-container {
   display:flex;
-  margin-right: 10px;
+
 }
 </style>

@@ -8,9 +8,7 @@ import HomeView from './views/HomeView.vue';
       <HomeView></HomeView>
     </div>
   </header>
-  
 </template>
-
 <style scoped>
 
 nav {

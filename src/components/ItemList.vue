@@ -1,7 +1,3 @@
-<script setup>
-import MovieItem from './MovieItem.vue'
-</script>
-
 <template>
   <div>
     <ul>
@@ -13,6 +9,8 @@ import MovieItem from './MovieItem.vue'
 </template>
 
 <script>
+import MovieItem from './MovieItem.vue';
+
 export default {
   components: {
     MovieItem
@@ -29,9 +27,12 @@ export default {
       this.$emit('remove-item', index)
     }
   }
-}
+};
 </script>
 
 <style scoped>
-/* Add your styling here */
+ ul {
+    padding:0;
+    list-style-type: none;
+ }
 </style>
