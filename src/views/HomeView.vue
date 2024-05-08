@@ -13,12 +13,19 @@ import ItemList from '@/components/ItemList.vue'
       :titleValue="titleData"
       :ratingValue="ratingData"
       @title-change="updateTitleData"
-      @rating-change="updateRatingData">
+      @rating-change="updateRatingData"
+    >
     </InputForm>
     <InputButton @button-click="handleButtonClick"></InputButton>
     <ItemList :items="itemsData" @remove-item="removeItemFromList"></ItemList>
-    <GeneralButton @button-click="sortListAlphabetic" :buttonText="'Sortera Alfabetiskt'"></GeneralButton>
-    <GeneralButton @button-click="sortListStarNumeric" :buttonText="'Sortera På Stjärnor'"></GeneralButton>
+    <GeneralButton
+      @button-click="sortListAlphabetic"
+      :buttonText="'Sortera Alfabetiskt'"
+    ></GeneralButton>
+    <GeneralButton
+      @button-click="sortListStarNumeric"
+      :buttonText="'Sortera På Stjärnor'"
+    ></GeneralButton>
   </main>
 </template>
 
@@ -78,18 +85,13 @@ export default {
       this.itemsData.splice(index, 1)
     },
     sortListAlphabetic() {
-      console.log("BEFORE: ",this.itemsData)
-      this.itemsData.sort((a, b) => a.name.localeCompare(b.name));
-      console.log("AFTER: ",this.itemsData)
+      this.itemsData.sort((a, b) => a.name.localeCompare(b.name))
     },
     sortListStarNumeric() {
-      console.log("BEFORE: ", this.itemsData)
-      this.itemsData.sort((a, b) => parseInt(a.stars) - parseInt(b.stars));
-      console.log("AFTER: ", this.itemsData)
+      this.itemsData.sort((a, b) => parseInt(a.stars) - parseInt(b.stars))
     }
   }
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
